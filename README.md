@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="th">
 <head>
     <meta charset="UTF-8">
@@ -61,7 +60,6 @@
         <h2>ความสามารถพิเศษ</h2>
         <ul>
             <li>เข้าใจและสามารถสื่อสารภาษาอังกฤษได้</li>
-    </section>
 
     <!-- ช่องทางการติดต่อ -->
     <section id="contact">
@@ -73,6 +71,3 @@
 
     <!-- ลิงก์ไปยัง JavaScript -->
     <script src="script.js"></script>
-
-</body>
-</html>
