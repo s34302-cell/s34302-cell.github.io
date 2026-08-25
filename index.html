@@ -1,32 +1,128 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8">
-<title>หน้าแนะนำตัวของฉัน</title>
-<style>
-body {
-background-color: #000080; color: #333;
-text-align: center; padding: 50px;
-
-}
-.card {
-background: skyblue; border-radius: 50px;
-box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-max-width: 500px; margin: 0 auto; padding: 30px;
-
-}
-h1 { color: #2c3e50; }
-p { font-size: 18px; line-height: 1.6; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<div class="card">
-<h1><u>ยินดีต้อนรับสู่โปรไฟล์ของผม</u> </h1>
-<p>สวัสดีครับ! ผมชื่อ <strong>ธิติพัทธ์ ถิรพงศ์ศักดิ์ดา  (Thitiphat Thirapongsakda)</strong></p>
-<p>ขณะกำลังศึกษา มัธยมศึกษาชั้นปีที่ 6/2 ห้องgifted /ขณะนี้กำลังสนใจด้าน Math Science & gifted</p>
-<p>นี่คือเว็บไซต์แรกของผมที่โฮสต์บน GitHub Pages!</p>
-<a href="portfolio.html" class="btn"> ไปหน้าผลงาน</a>
-</body>
- 
+  <header class="navbar">
+    <a class="brand" href="#home">YOUR NAME</a>
+
+    <nav>
+      <a href="#home">หน้าหลัก</a>
+      <a href="#about">คำนำ</a>
+      <a href="#profile">ประวัติส่วนตัว</a>
+      <a href="#education">ประวัติการศึกษา</a>
+      <a href="#interest">ความสนใจในการศึกษาต่อ</a>
+      <a href="#activities">กิจกรรมที่เข้าร่วม</a>
+      <a href="#skills">ความสามารถพิเศษ</a>
+    </nav>
+
+    <button class="menu-btn" aria-label="เปิดเมนู">☰</button>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <h1>แนะนำตัว</h1>
+      <img src="images/intro.png" alt="รูปแนะนำตัว" class="main-image">
+    </section>
+
+    <section id="about" class="content-section">
+      <div class="section-inner">
+        <h2>คำนำ</h2>
+        <p>
+          เว็บไซต์นี้จัดทำขึ้นเพื่อรวบรวมประวัติส่วนตัว ประวัติการศึกษา
+          ผลงาน กิจกรรม และความสามารถต่าง ๆ เพื่อใช้เป็นแฟ้มสะสมผลงาน
+          และนำเสนอความสนใจและเป้าหมายในการศึกษาต่อ
+        </p>
+      </div>
+    </section>
+
+    <section id="profile" class="content-section">
+      <div class="section-inner">
+        <h2>ประวัติส่วนตัว</h2>
+        <img src="images/profile.png" alt="รูปประวัติส่วนตัว" class="main-image">
+        <div class="info-grid">
+          <div><strong>ชื่อ</strong><span>YOUR NAME</span></div>
+          <div><strong>ชื่อเล่น</strong><span>YOUR NICKNAME</span></div>
+          <div><strong>วันเกิด</strong><span>DD / MM / YYYY</span></div>
+          <div><strong>โรงเรียน</strong><span>YOUR SCHOOL</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="content-section">
+      <div class="section-inner">
+        <h2>ประวัติการศึกษา</h2>
+        <div class="timeline">
+          <article>
+            <span>ระดับประถมศึกษา</span>
+            <h3>ชื่อโรงเรียน</h3>
+            <p>รายละเอียดการศึกษา</p>
+          </article>
+          <article>
+            <span>ระดับมัธยมศึกษา</span>
+            <h3>ชื่อโรงเรียน</h3>
+            <p>รายละเอียดการศึกษา / แผนการเรียน</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="interest" class="content-section">
+      <div class="section-inner">
+        <h2>ความสนใจในการศึกษาต่อ</h2>
+        <p>
+          เขียนเกี่ยวกับคณะที่สนใจ สาขาที่อยากเรียน เหตุผลที่เลือก
+          และเป้าหมายในอนาคตของเราได้ตรงนี้
+        </p>
+      </div>
+    </section>
+
+    <section id="activities" class="content-section">
+      <div class="section-inner">
+        <h2>กิจกรรมที่เข้าร่วม</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>กิจกรรมที่ 01</h3>
+            <p>รายละเอียดกิจกรรมและสิ่งที่ได้รับจากกิจกรรม</p>
+          </article>
+          <article class="card">
+            <h3>กิจกรรมที่ 02</h3>
+            <p>รายละเอียดกิจกรรมและสิ่งที่ได้รับจากกิจกรรม</p>
+          </article>
+          <article class="card">
+            <h3>กิจกรรมที่ 03</h3>
+            <p>รายละเอียดกิจกรรมและสิ่งที่ได้รับจากกิจกรรม</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="content-section">
+      <div class="section-inner">
+        <h2>ความสามารถพิเศษ</h2>
+        <div class="skills">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript</span>
+          <span>Python</span>
+          <span>Graphic Design</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 YOUR NAME · Portfolio</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
