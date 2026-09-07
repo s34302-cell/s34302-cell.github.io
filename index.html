@@ -3,202 +3,751 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>คำนำ | แฟ้มสะสมผลงาน นายธิติพัทธ์ ถิรพงศ์ศักดิ์ดา</title>
+<title>หน้าแรก | นายธิติพัทธ์ ถิรพงศ์ศักดิ์ดา</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@400;600;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --navy-900: #0B2545;
-    --navy-700: #14406B;
-    --blue-600: #1D5DAD;
-    --blue-100: #E9F1FB;
-    --blue-050: #F5F9FE;
-    --white: #FFFFFF;
-    --ink: #142433;
-    --muted: #5B7186;
-    --line: #D3E1F2;
-    --serif: 'Noto Serif Thai', serif;
-    --sans: 'Noto Sans Thai', sans-serif;
+  :root{
+    --navy-900:#0B2545;
+    --navy-700:#14406B;
+    --blue-600:#1D5DAD;
+    --blue-100:#E9F1FB;
+    --blue-050:#F5F9FE;
+    --white:#FFFFFF;
+    --ink:#142433;
+    --muted:#5B7186;
+    --line:#D3E1F2;
+    --serif:'Noto Serif Thai', serif;
+    --sans:'Noto Sans Thai', sans-serif;
   }
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html,body{height:100%;overflow:hidden;}
+
+  body{
+    font-family:var(--sans);
+    color:var(--ink);
+    background:var(--white);
+    line-height:1.75;
   }
 
-  body {
-    font-family: var(--sans);
-    color: var(--ink);
-    background-color: var(--blue-050);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 40px 20px;
-    line-height: 1.8;
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+
+  /* ---------- Letterhead / Navbar ---------- */
+  .letterhead{
+    background:var(--navy-900);
+    color:var(--white);
+    text-align:center;
+    padding:8px 20px;
+    font-size:0.68rem;
+    letter-spacing:0.18em;
+    font-weight:500;
+    position:fixed;
+    top:0;left:0;right:0;
+    z-index:60;
   }
 
-  /* คอนเทนเนอร์หลักการ์ดคำนำ */
-  .about-card {
-    background: var(--white);
-    max-width: 680px;
-    width: 100%;
-    padding: 48px 40px;
-    border-radius: 12px;
-    border: 1px solid var(--line);
-    box-shadow: 0 20px 40px -15px rgba(11, 37, 69, 0.08);
-    position: relative;
-    overflow: hidden;
+  .navbar{
+    position:fixed;
+    top:34px;
+    left:0;right:0;
+    z-index:55;
+    background:var(--white);
+    border-bottom:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:14px 32px;
   }
 
-  /* แถบตกแต่งด้านบนการ์ด */
-  .about-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 5px;
-    background: linear-gradient(90deg, var(--navy-900), var(--blue-600));
+  .brand{
+    font-family:var(--serif);
+    font-weight:700;
+    font-size:1.05rem;
+    color:var(--navy-900);
+    letter-spacing:0.03em;
+    cursor:pointer;
   }
 
-  /* ส่วนหัวเรื่อง */
-  .section-header {
-    margin-bottom: 24px;
-    text-align: center;
+  .brand span{
+    display:block;
+    font-family:var(--sans);
+    font-weight:400;
+    font-size:0.62rem;
+    color:var(--muted);
+    letter-spacing:0.15em;
+    margin-top:2px;
   }
 
-  .subtitle {
-    font-size: 0.75rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--blue-600);
-    font-weight: 600;
-    display: block;
-    margin-bottom: 6px;
+  nav{display:flex;align-items:center;gap:20px;}
+
+  nav button.navlink{
+    font-family:var(--sans);
+    background:none;
+    border:none;
+    cursor:pointer;
+    font-size:0.88rem;
+    font-weight:500;
+    color:var(--navy-700);
+    position:relative;
+    padding:4px 0;
+    transition:color .2s ease;
   }
 
-  h2 {
-    font-family: var(--serif);
-    font-size: 2rem;
-    color: var(--navy-900);
-    font-weight: 700;
+  nav button.navlink::after{
+    content:"";
+    position:absolute;
+    left:0;bottom:-2px;
+    width:0;height:2px;
+    background:var(--blue-600);
+    transition:width .25s ease;
   }
 
-  /* เนื้อหาคำนำ */
-  .content-text {
-    color: var(--ink);
-    font-size: 1.05rem;
-    text-align: justify;
-    text-indent: 2.5em;
-    margin-bottom: 32px;
-  }
+  nav button.navlink:hover{color:var(--blue-600);}
+  nav button.navlink:hover::after{width:100%;}
+  nav button.navlink.active{color:var(--blue-600);}
+  nav button.navlink.active::after{width:100%;}
 
-  /* ส่วนท้าย / ลายเซ็น */
-  .signature-block {
-    text-align: right;
-    border-top: 1px solid var(--blue-100);
-    padding-top: 20px;
-    margin-bottom: 36px;
-  }
-
-  .signature-block .name {
-    font-family: var(--serif);
-    font-weight: 600;
-    color: var(--navy-900);
-  }
-
-  .signature-block .role {
-    font-size: 0.85rem;
-    color: var(--muted);
-  }
-
-  /* ปุ่มกดกลับหน้าแรก */
-  .btn-wrapper {
-    text-align: center;
-  }
-
-  .btn {
+  /* ปุ่มกดรับชม Portfolio ใน Navbar */
+  .portfolio-btn-link {
     display: inline-flex;
     align-items: center;
+    gap: 6px;
+    padding: 6px 16px;
+    background-color: var(--blue-600);
+    color: var(--white);
+    border: 1px solid var(--blue-600);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s ease;
+  }
+
+  .portfolio-btn-link:hover {
+    background-color: var(--navy-900);
+    border-color: var(--navy-900);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(11, 37, 69, 0.2);
+  }
+
+  .portfolio-btn-link svg {
+    width: 15px;
+    height: 15px;
+    fill: currentColor;
+  }
+
+  /* ปุ่มหลักกลางหน้าแรก (CTA Hero Button) */
+  .cta-portfolio-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     gap: 8px;
+    margin-top: 10px;
     padding: 12px 28px;
     background-color: var(--navy-900);
     color: var(--white);
-    font-family: var(--sans);
     font-size: 0.95rem;
-    font-weight: 500;
+    font-weight: 600;
+    border-radius: 30px;
     text-decoration: none;
-    border-radius: 6px;
-    transition: all 0.25s ease;
-    box-shadow: 0 4px 12px rgba(11, 37, 69, 0.15);
+    box-shadow: 0 8px 20px rgba(11, 37, 69, 0.2);
+    transition: all 0.3s ease;
   }
 
-  .btn:hover {
+  .cta-portfolio-btn:hover {
     background-color: var(--blue-600);
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(29, 93, 173, 0.25);
+    box-shadow: 0 12px 24px rgba(29, 93, 173, 0.3);
   }
 
-  .btn svg {
+  .cta-portfolio-btn svg {
     width: 18px;
     height: 18px;
     fill: currentColor;
-    transition: transform 0.25s ease;
   }
 
-  .btn:hover svg {
-    transform: translateX(-4px);
+  .menu-btn{
+    display:none;
+    background:none;
+    border:1px solid var(--line);
+    border-radius:6px;
+    font-size:1.1rem;
+    color:var(--navy-900);
+    padding:6px 12px;
+    cursor:pointer;
   }
 
-  /* Responsive สำหรับหน้าจอขนาดเล็ก */
-  @media (max-width: 576px) {
-    .about-card {
-      padding: 32px 24px;
+  /* ---------- Slide mechanics (horizontal) ---------- */
+  .slides-viewport{
+    position:fixed;
+    top:0;left:0;right:0;bottom:0;
+    overflow:hidden;
+    cursor:pointer;
+  }
+
+  .slides-track{
+    height:100%;
+    display:flex;
+    flex-direction:row;
+    transition:transform .6s cubic-bezier(.65,0,.35,1);
+    will-change:transform;
+  }
+
+  .slide{
+    height:100vh;
+    width:100vw;
+    flex:0 0 100vw;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    padding:104px 24px 60px;
+  }
+
+  .slide.alt{background:var(--blue-050);}
+
+  .slide-scroll{
+    max-width:920px;
+    width:100%;
+    max-height:100%;
+    overflow-y:auto;
+    padding:12px 4px 12px;
+    scrollbar-width:thin;
+    cursor:auto;
+  }
+
+  .slide-scroll::-webkit-scrollbar{width:6px;}
+  .slide-scroll::-webkit-scrollbar-thumb{background:var(--line);border-radius:6px;}
+
+  h2{
+    font-family:var(--serif);
+    font-weight:700;
+    font-size:1.9rem;
+    color:var(--navy-900);
+    margin-bottom:28px;
+  }
+
+  /* ---------- Hero ---------- */
+  #home.slide{
+    text-align:center;
+    background:
+      linear-gradient(var(--white), var(--white)) padding-box,
+      repeating-linear-gradient(135deg, var(--blue-050) 0 2px, var(--white) 2px 26px);
+  }
+
+  .hero-content{max-width:640px;cursor:auto;}
+
+  .hero h1{
+    font-family:var(--serif);
+    font-weight:700;
+    font-size:clamp(1.9rem, 4.5vw, 3rem);
+    color:var(--navy-900);
+    line-height:1.25;
+    margin-bottom:14px;
+  }
+
+  .hero .sub{
+    font-size:1rem;
+    color:var(--muted);
+    max-width:520px;
+    margin:0 auto 20px;
+  }
+
+  .home-photo{
+    width:2in;
+    height:2in;
+    max-width:80vw;
+    max-height:45vh;
+    object-fit:cover;
+    border:1px solid var(--line);
+    border-radius:6px;
+    box-shadow:0 24px 48px -20px rgba(11,37,69,.25);
+    margin:0 auto 24px;
+  }
+
+  /* ---------- Profile ---------- */
+  #profile .slide-scroll{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    gap:18px;
+  }
+
+  #profile .head{width:100%;}
+  #profile .head h2{margin-bottom:0;}
+
+  #profile .main-image{
+    width:3.5cm;height:4.5cm;
+    object-fit:cover;
+    border:1px solid var(--line);
+    border-radius:2px;
+    margin:0 auto;
+  }
+
+  #profile .info-grid{
+    text-align:left;
+    max-width:640px;
+    width:100%;
+  }
+
+  .info-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    grid-template-rows:repeat(2, auto);
+    border:1px solid var(--line);
+    border-radius:6px;
+    overflow:hidden;
+    background:var(--white);
+  }
+
+  .info-grid > div{
+    padding:16px 18px;
+    border-bottom:1px solid var(--line);
+    border-right:1px solid var(--line);
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+  }
+
+  .info-grid > div:nth-child(3n){border-right:none;}
+  .info-grid > div:nth-last-child(-n+3){border-bottom:none;}
+
+  .info-grid strong{
+    display:block;
+    font-family:var(--serif);
+    font-size:0.72rem;
+    letter-spacing:0.08em;
+    color:var(--blue-600);
+    text-transform:uppercase;
+    margin-bottom:6px;
+  }
+
+  .info-grid span{font-size:0.92rem;color:var(--ink);font-weight:500;word-break:break-word;}
+
+  /* ---------- Timeline ---------- */
+  .timeline{display:flex;flex-direction:column;gap:28px;}
+
+  .timeline article{
+    display:flex;
+    align-items:flex-start;
+    gap:20px;
+    text-align:left;
+  }
+
+  .timeline .school-logo{
+    width:2in;
+    height:2in;
+    flex-shrink:0;
+    object-fit:cover;
+    border:1px solid var(--line);
+    border-radius:12px;
+    background:var(--white);
+  }
+
+  .timeline span{
+    display:inline-block;
+    font-size:0.72rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--blue-600);
+    font-weight:600;
+    margin-bottom:6px;
+  }
+
+  .timeline h3{
+    font-family:var(--serif);
+    font-size:1.18rem;
+    color:var(--navy-900);
+    margin-bottom:6px;
+  }
+
+  .timeline p{color:var(--muted);max-width:60ch;}
+
+  /* ---------- Interest ---------- */
+  #interest .slide-scroll{max-width:760px;}
+
+  .interest-list{
+    display:flex;
+    flex-direction:column;
+    gap:32px;
+    text-align:left;
+  }
+
+  .interest-item{
+    border-left:3px solid var(--blue-600);
+    padding:4px 0 4px 28px;
+  }
+
+  .interest-item span{
+    display:block;
+    font-family:var(--serif);
+    font-size:0.8rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--blue-600);
+    font-weight:600;
+    margin-bottom:10px;
+  }
+
+  .interest-item p{
+    font-family:var(--serif);
+    font-size:1.15rem;
+    line-height:1.9;
+    color:var(--navy-900);
+  }
+
+  /* ---------- Activities ---------- */
+  #activities .slide-scroll{max-width:920px;}
+
+  .activities-list{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+  }
+
+  .activity-item{
+    display:flex;
+    align-items:center;
+    gap:22px;
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:18px 22px;
+    text-align:left;
+    transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+
+  .activity-item:hover{
+    transform:translateY(-3px);
+    border-color:var(--blue-600);
+    box-shadow:0 20px 40px -24px rgba(11,37,69,.35);
+  }
+
+  .activity-item .activity-text{flex:1;min-width:0;}
+
+  .activity-item .card-num{
+    font-family:var(--serif);
+    font-size:0.78rem;
+    letter-spacing:0.08em;
+    color:var(--blue-600);
+    font-weight:600;
+    margin-bottom:10px;
+  }
+
+  .activity-item h3{
+    font-family:var(--serif);
+    font-size:1.08rem;
+    color:var(--navy-900);
+    margin-bottom:6px;
+  }
+
+  .activity-item p{color:var(--muted);font-size:0.92rem;}
+
+  .activity-item .activity-photo{
+    flex-shrink:0;
+    width:150px;
+    height:150px;
+    object-fit:cover;
+    border:1px solid var(--line);
+    border-radius:8px;
+    background:var(--blue-050);
+  }
+
+  @media (max-width: 860px){
+    .activity-item{flex-direction:column;align-items:stretch;text-align:center;}
+    .activity-item .activity-photo{width:100%;height:auto;aspect-ratio:1/1;order:-1;}
+  }
+
+  /* ---------- Slide navigation controls ---------- */
+  .dots{
+    position:fixed;
+    bottom:22px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:14px;
+    z-index:56;
+  }
+
+  .dots button{
+    width:10px;height:10px;
+    border-radius:50%;
+    border:1.5px solid var(--blue-600);
+    background:transparent;
+    cursor:pointer;
+    padding:0;
+    transition:background .2s ease, transform .2s ease;
+  }
+
+  .dots button.active{background:var(--blue-600);transform:scale(1.25);}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 860px){
+    nav{
+      position:fixed;
+      top:78px;left:0;right:0;
+      background:var(--white);
+      flex-direction:column;
+      gap:0;
+      border-bottom:1px solid var(--line);
+      transform:translateY(-120%);
+      transition:transform .25s ease;
+      padding:16px 0;
     }
-    h2 {
-      font-size: 1.6rem;
+    nav.open{transform:translateY(0);}
+    nav button.navlink{
+      padding:14px 32px;
+      border-bottom:1px solid var(--line);
+      width:100%;
+      text-align:left;
     }
-    .content-text {
-      font-size: 0.98rem;
+    .portfolio-btn-link{
+      margin: 10px 32px 4px;
+      justify-content: center;
+      width: calc(100% - 64px);
     }
+    .menu-btn{display:block;}
+    #profile .main-image{width:3.5cm;height:4.5cm;}
+    .info-grid{grid-template-columns:1fr;grid-template-rows:none;}
+    .info-grid > div{border-right:none;border-bottom:1px solid var(--line);}
+    .info-grid > div:last-child{border-bottom:none;}
+    .timeline .school-logo{width:1.3in;height:1.3in;}
+    .slide{padding:130px 18px 60px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important;}
   }
 </style>
 </head>
+
 <body>
 
-  <main class="about-card">
-    <div class="section-header">
-      <span class="subtitle">PREFACE</span>
-      <h2>คำนำ</h2>
-    </div>
+  <div class="letterhead">แฟ้มสะสมผลงานเพื่อการสมัครเข้าศึกษาต่อระดับอุดมศึกษา · ADMISSIONS PORTFOLIO</div>
 
-    <section id="about" class="content-section">
-      <p class="content-text">
-        เว็บไซต์นี้จัดทำขึ้นเพื่อรวบรวมประวัติส่วนตัว ประวัติการศึกษา
-        ผลงาน กิจกรรม และความสามารถต่าง ๆ เพื่อใช้เป็นแฟ้มสะสมผลงาน (Portfolio)
-        และนำเสนอความสนใจตลอดจนเป้าหมายในการศึกษาต่อในระดับอุดมศึกษา
-      </p>
-    </section>
-
-    <div class="signature-block">
-      <div class="name">นายธิติพัทธ์ ถิรพงศ์ศักดิ์ดา</div>
-      <div class="role">ผู้จัดทำ</div>
-    </div>
-
-    <div class="btn-wrapper">
-      <a href="index.html" class="btn">
+  <header class="navbar">
+    <span class="brand" id="brandHome">นายธิติพัทธ์ ถิรพงศ์ศักดิ์ดา<span>PORTFOLIO</span></span>
+    <nav id="mainNav">
+      <button class="navlink" data-slide="0">หน้าหลัก</button>
+      <button class="navlink" data-slide="1">ประวัติส่วนตัว</button>
+      <button class="navlink" data-slide="2">ประวัติการศึกษา</button>
+      <button class="navlink" data-slide="3">ความสนใจในการศึกษาต่อ</button>
+      <button class="navlink" data-slide="4">กิจกรรมที่เข้าร่วม</button>
+      <a href="portfolio.html" class="portfolio-btn-link">
         <svg viewBox="0 0 24 24">
-          <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+          <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
         </svg>
-        กลับหน้าแรก
+        รับชม Portfolio
       </a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="เปิดเมนู">☰</button>
+  </header>
+
+  <div class="slides-viewport" id="slidesViewport">
+    <div class="slides-track" id="slidesTrack">
+
+      <section id="home" class="slide">
+        <div class="hero-content">
+          <img src="mhee.jpg" alt="รูปโปรไฟล์" class="home-photo">
+          <h1>สวัสดีครับ<br>ผมชื่อนายธิติพัทธ์ ถิรพงศ์ศักดิ์ดา</h1>
+          <p class="sub">แฟ้มสะสมผลงานฉบับนี้รวบรวมประวัติการศึกษา ประวัติส่วนตัว กิจกรรม
+            และความมุ่งมั่น เพื่อประกอบการพิจารณาเข้าศึกษาต่อ</p>
+          <a href="portfolio.html" class="cta-portfolio-btn">
+            รับชม Portfolio
+            <svg viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </section>
+
+      <section id="profile" class="slide alt">
+        <div class="slide-scroll">
+          <div class="head">
+            <h2>ประวัติส่วนตัว</h2>
+          </div>
+          <img src="mhee.jpg" alt="รูปประวัติส่วนตัว" class="main-image">
+          <div class="info-grid">
+            <div><strong>ชื่อ</strong><span>นายธิติพัทธ์ ถิรพงศ์ศักดิ์ดา</span></div>
+            <div><strong>ชื่อเล่น</strong><span>หมีพู</span></div>
+            <div><strong>วันเกิด</strong><span>31 ตุลาคม พ.ศ. 2551</span></div>
+            <div><strong>โรงเรียน</strong><span>บ้านบึง"อุตสาหกรรมนุเคราะห์"</span></div>
+            <div><strong>เบอร์โทรศัพท์</strong><span>091-928-6174</span></div>
+            <div><strong>Email</strong><span>thiitphatpooh3110@gmail.com</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="education" class="slide">
+        <div class="slide-scroll">
+          <h2>ประวัติการศึกษา</h2>
+          <div class="timeline">
+            <article>
+              <img src="primary-log2.jpg" alt="โลโก้โรงเรียนจิ้นฮั้ว" class="school-logo">
+              <div>
+                <span>ระดับประถมศึกษา</span>
+                <h3>จิ้นฮั้ว</h3>
+                <p>วิทยาศาสตร์-คณิตศาสตร์</p>
+              </div>
+            </article>
+            <article>
+              <img src="school-logo.png" alt="โลโก้โรงเรียนบ้านบึงอุตสาหกรรมนุเคราะห์" class="school-logo">
+              <div>
+                <span>ระดับมัธยมศึกษา</span>
+                <h3>บ้านบึง"อุตสาหกรรมนุเคราะห์"</h3>
+                <p>แผนการเรียน gifted</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="interest" class="slide alt">
+        <div class="slide-scroll">
+          <h2>ความสนใจในการศึกษาต่อ</h2>
+          <div class="interest-list">
+            <article class="interest-item">
+              <span>มหาวิทยาลัยที่อยากเข้า</span>
+              <p>มหาวิทยาลัยที่อยากเข้าคือ Mahidol university(MU)</p>
+            </article>
+            <article class="interest-item">
+              <span>คณะที่อยากเข้า</span>
+              <p>คณะที่อยากเข้าคือ เทคนิคการแพทย์</p>
+            </article>
+            <article class="interest-item">
+              <span>สาขาที่อยากเรียน</span>
+              <p>สาขา สาขากายภาพบำบัด</p>
+            </article>
+            <article class="interest-item">
+              <span>เหตุผลที่อยากเข้ามหาวิทยาลัยนี้ คณะนี้</span>
+              <p>เพราะเป็นมหาวิทยาลัยในฝันและรู้สึกว่าที่นี่จะเป็นที่ที่ทำให้ผมเติบโตและได้เรียนรู้ตรงกับสายงานที่ต้องการ ที่เลือกคณะนี้เพราะผมถนัดในด้านวิทยาศาสตร์-คณิตศาสตร์ ที่เป็นสาขานี้เพราะว่าที่บ้านมีผู้สูงอายุเยอะเลยอยากนำสิ่งที่เรียนไปปรับใช้ได้และดูแลคนที่รักได้</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="activities" class="slide">
+        <div class="slide-scroll">
+          <h2>กิจกรรมที่เข้าร่วม</h2>
+          <div class="activities-list">
+            <article class="activity-item">
+              <div class="activity-text">
+                <div class="card-num">กิจกรรมที่ 01</div>
+                <h3>ตอบปัญหาชีวะที่มหาวิทยาลัยจุฬาลงกรณ์(Amsci)</h3>
+                <p>ได้รู้ระดับความรู้ตัวเองเปิดโลกเก็บประสบการณ์การแข่ง</p>
+              </div>
+              <img src="cert12.jpg" alt="ภาพกิจกรรมที่ 1" class="activity-photo">
+            </article>
+            <article class="activity-item">
+              <div class="activity-text">
+                <div class="card-num">กิจกรรมที่ 02</div>
+                <h3>การแข่งขันคลิปวิดิโอ"TikTok"</h3>
+                <p>กิจกรรมนี้ช่วยพัฒนาความคิดสร้างสรรค์ การทำงานร่วมกับผู้อื่น การนำเสนอเนื้อหาผ่านสื่อดิจิทัล และการประยุกต์ใช้ความรู้ทางคณิตศาสตร์ให้เข้ากับการสร้างสรรค์ผลงาน</p>
+              </div>
+              <img src="cert13.jpg" alt="ภาพกิจกรรมที่ 2" class="activity-photo">
+            </article>
+          </div>
+        </div>
+      </section>
+
     </div>
-  </main>
+  </div>
+
+  <div class="dots" id="dots"></div>
+
+  <script>
+    const viewport = document.getElementById('slidesViewport');
+    const track = document.getElementById('slidesTrack');
+    const slides = Array.from(track.querySelectorAll('.slide'));
+    const total = slides.length;
+    const navLinks = Array.from(document.querySelectorAll('.navlink'));
+    const dotsWrap = document.getElementById('dots');
+    const menuBtn = document.getElementById('menuBtn');
+    const nav = document.getElementById('mainNav');
+    const brandHome = document.getElementById('brandHome');
+
+    let current = 0;
+    let isAnimating = false;
+
+    // Build dot indicators
+    slides.forEach((s, i) => {
+      const dot = document.createElement('button');
+      dot.setAttribute('aria-label', 'ไปหัวข้อที่ ' + (i + 1));
+      dot.addEventListener('click', (e) => { e.stopPropagation(); goTo(i); });
+      dotsWrap.appendChild(dot);
+    });
+    const dots = Array.from(dotsWrap.children);
+
+    function update() {
+      track.style.transform = `translateX(-${current * 100}vw)`;
+      navLinks.forEach((l, i) => l.classList.toggle('active', i === current));
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    function goTo(index) {
+      if (isAnimating) return;
+      const clamped = Math.max(0, Math.min(total - 1, index));
+      if (clamped === current) return;
+      current = clamped;
+      isAnimating = true;
+      update();
+      setTimeout(() => { isAnimating = false; }, 620);
+    }
+
+    function next() { goTo(current + 1); }
+    function prev() { goTo(current - 1); }
+
+    viewport.addEventListener('click', (e) => {
+      if (e.button !== 0) return;
+      const isInteractive = e.target.closest('a, button, .slide-scroll, .hero-content');
+      if (isInteractive) return;
+      const isLeftHalf = e.clientX < window.innerWidth / 2;
+      if (isLeftHalf) prev();
+      else next();
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.stopPropagation();
+        goTo(parseInt(link.dataset.slide, 10));
+        nav.classList.remove('open');
+      });
+    });
+
+    brandHome.addEventListener('click', (e) => { e.stopPropagation(); goTo(0); });
+    menuBtn.addEventListener('click', (e) => { e.stopPropagation(); nav.classList.toggle('open'); });
+
+    // Keyboard navigation
+    window.addEventListener('keydown', (e) => {
+      if (['ArrowRight', 'PageDown'].includes(e.key)) { e.preventDefault(); next(); }
+      if (['ArrowLeft', 'PageUp'].includes(e.key)) { e.preventDefault(); prev(); }
+      if (e.key === 'Home') { e.preventDefault(); goTo(0); }
+      if (e.key === 'End') { e.preventDefault(); goTo(total - 1); }
+    });
+
+    // Horizontal swipe navigation on touch devices
+    let touchStartX = null;
+    viewport.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+
+    viewport.addEventListener('touchend', (e) => {
+      if (touchStartX === null) return;
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 60) {
+        if (diff > 0) next(); else prev();
+      }
+      touchStartX = null;
+    }, { passive: true });
+
+    update();
+  </script>
 
 </body>
 </html>
