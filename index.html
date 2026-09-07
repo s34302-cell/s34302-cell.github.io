@@ -2,19 +2,203 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<meta viewport="width=device-width, initial-scale=1.0">
-  <section id="about" class="content-section">
-      <div class="section-inner">
-        <h2>คำนำ</h2>
-        <p>
-          เว็บไซต์นี้จัดทำขึ้นเพื่อรวบรวมประวัติส่วนตัว ประวัติการศึกษา
-          ผลงาน กิจกรรม และความสามารถต่าง ๆ เพื่อใช้เป็นแฟ้มสะสมผลงาน
-          และนำเสนอความสนใจและเป้าหมายในการศึกษาต่อ
-        </p>
-      </div>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>คำนำ | แฟ้มสะสมผลงาน นายธิติพัทธ์ ถิรพงศ์ศักดิ์ดา</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@400;600;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --navy-900: #0B2545;
+    --navy-700: #14406B;
+    --blue-600: #1D5DAD;
+    --blue-100: #E9F1FB;
+    --blue-050: #F5F9FE;
+    --white: #FFFFFF;
+    --ink: #142433;
+    --muted: #5B7186;
+    --line: #D3E1F2;
+    --serif: 'Noto Serif Thai', serif;
+    --sans: 'Noto Sans Thai', sans-serif;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background-color: var(--blue-050);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    line-height: 1.8;
+  }
+
+  /* คอนเทนเนอร์หลักการ์ดคำนำ */
+  .about-card {
+    background: var(--white);
+    max-width: 680px;
+    width: 100%;
+    padding: 48px 40px;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    box-shadow: 0 20px 40px -15px rgba(11, 37, 69, 0.08);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* แถบตกแต่งด้านบนการ์ด */
+  .about-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--navy-900), var(--blue-600));
+  }
+
+  /* ส่วนหัวเรื่อง */
+  .section-header {
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  .subtitle {
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--blue-600);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  h2 {
+    font-family: var(--serif);
+    font-size: 2rem;
+    color: var(--navy-900);
+    font-weight: 700;
+  }
+
+  /* เนื้อหาคำนำ */
+  .content-text {
+    color: var(--ink);
+    font-size: 1.05rem;
+    text-align: justify;
+    text-indent: 2.5em;
+    margin-bottom: 32px;
+  }
+
+  /* ส่วนท้าย / ลายเซ็น */
+  .signature-block {
+    text-align: right;
+    border-top: 1px solid var(--blue-100);
+    padding-top: 20px;
+    margin-bottom: 36px;
+  }
+
+  .signature-block .name {
+    font-family: var(--serif);
+    font-weight: 600;
+    color: var(--navy-900);
+  }
+
+  .signature-block .role {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  /* ปุ่มกดกลับหน้าแรก */
+  .btn-wrapper {
+    text-align: center;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background-color: var(--navy-900);
+    color: var(--white);
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(11, 37, 69, 0.15);
+  }
+
+  .btn:hover {
+    background-color: var(--blue-600);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(29, 93, 173, 0.25);
+  }
+
+  .btn svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    transition: transform 0.25s ease;
+  }
+
+  .btn:hover svg {
+    transform: translateX(-4px);
+  }
+
+  /* Responsive สำหรับหน้าจอขนาดเล็ก */
+  @media (max-width: 576px) {
+    .about-card {
+      padding: 32px 24px;
+    }
+    h2 {
+      font-size: 1.6rem;
+    }
+    .content-text {
+      font-size: 0.98rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <main class="about-card">
+    <div class="section-header">
+      <span class="subtitle">PREFACE</span>
+      <h2>คำนำ</h2>
+    </div>
+
+    <section id="about" class="content-section">
+      <p class="content-text">
+        เว็บไซต์นี้จัดทำขึ้นเพื่อรวบรวมประวัติส่วนตัว ประวัติการศึกษา
+        ผลงาน กิจกรรม และความสามารถต่าง ๆ เพื่อใช้เป็นแฟ้มสะสมผลงาน (Portfolio)
+        และนำเสนอความสนใจตลอดจนเป้าหมายในการศึกษาต่อในระดับอุดมศึกษา
+      </p>
     </section>
-<!-- ปุ่มกดกลับหน้าแรก -->
-<a href="index.html" class="btn"> กลับหน้าแรก</a>
-</div>
+
+    <div class="signature-block">
+      <div class="name">นายธิติพัทธ์ ถิรพงศ์ศักดิ์ดา</div>
+      <div class="role">ผู้จัดทำ</div>
+    </div>
+
+    <div class="btn-wrapper">
+      <a href="index.html" class="btn">
+        <svg viewBox="0 0 24 24">
+          <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+        </svg>
+        กลับหน้าแรก
+      </a>
+    </div>
+  </main>
+
 </body>
 </html>
