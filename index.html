@@ -32,12 +32,13 @@
     min-height:100vh;
     display:flex;
     flex-direction:column;
+    overflow-x:hidden;
   }
 
   a{color:inherit;text-decoration:none;}
   img{max-width:100%;display:block;}
 
-  /* ---------- Page Loader ---------- */
+  /* ---------- Page Loader (นับเปอร์เซ็นต์) ---------- */
   #page-loader {
     position: fixed;
     top: 0;
@@ -51,7 +52,7 @@
     justify-content: center;
     align-items: center;
     color: var(--white);
-    transition: opacity 0.6s ease, visibility 0.6s ease;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
   }
 
   #page-loader.fade-out {
@@ -69,9 +70,18 @@
     margin-bottom: 16px;
   }
 
+  /* แสดงตัวเลขเปอร์เซ็นต์ */
+  .loader-percentage {
+    font-family: var(--serif);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
   .loader-text {
     font-family: var(--sans);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     letter-spacing: 0.15em;
     color: var(--blue-100);
     text-transform: uppercase;
@@ -96,7 +106,7 @@
     z-index:60;
   }
 
-  /* ---------- Header / Brand Only (ไม่มีเมนูนำทางขวามือ) ---------- */
+  /* ---------- Header / Brand Only ---------- */
   .navbar{
     position:fixed;
     top:31px;
@@ -128,7 +138,7 @@
     margin-top:2px;
   }
 
-  /* ---------- Main Hero Content Area ---------- */
+  /* ---------- Main Content Area ---------- */
   .main-wrapper {
     flex: 1;
     display: flex;
@@ -187,7 +197,7 @@
     border-radius: 30px;
     text-decoration: none;
     box-shadow: 0 8px 20px rgba(11, 37, 69, 0.2);
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   }
 
   .cta-portfolio-btn:hover {
@@ -201,6 +211,25 @@
     height: 16px;
   }
 
+  /* ---------- Animation สำหรับการทยอยขึ้นแสดงผล (Text & Image Reveal) ---------- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  /* คลาสเมื่อเล่น Animation */
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* การตั้งเวลาดีเลย์ให้ทยอยมาทีละส่วน */
+  .delay-1 { transition-delay: 0.2s; }
+  .delay-2 { transition-delay: 0.4s; }
+  .delay-3 { transition-delay: 0.6s; }
+  .delay-4 { transition-delay: 0.8s; }
+
   @media (max-width: 860px){
     .letterhead{text-align:center;padding:8px 12px;}
     .main-wrapper{padding-top:140px;}
@@ -210,41 +239,71 @@
 
 <body>
 
-  <!-- Page Loader -->
+  <!-- Page Loader แบบมีตัวเลขเปอร์เซ็นต์ -->
   <div id="page-loader">
     <div class="loader-spinner"></div>
+    <div class="loader-percentage" id="loader-percent">0%</div>
     <div class="loader-text">กำลังโหลดข้อมูล...</div>
   </div>
 
+  <!-- แถบ Letterhead สีน้ำเงินบนสุด -->
   <div class="letterhead">แฟ้มสะสมผลงานเพื่อการสมัครเข้าศึกษาต่อระดับอุดมศึกษา · ADMISSIONS PORTFOLIO</div>
 
+  <!-- Header Bar -->
   <header class="navbar">
     <div class="brand">นายธิติพัทธ์ ถิรพงศ์ศักดิ์ดา<span>PORTFOLIO</span></div>
   </header>
 
-  <!-- เนื้อหาหลักกลางหน้า -->
+  <!-- เนื้อหาหลักกลางหน้า (ใส่ class reveal และ delay-x) -->
   <main class="main-wrapper">
     <div class="hero-content">
-      <img src="mhee.jpg" alt="รูปโปรไฟล์" class="home-photo">
-      <h1>สวัสดีครับ<br>ผมชื่อนายธิติพัทธ์ ถิรพงศ์ศักดิ์ดา</h1>
-      <p class="sub">แฟ้มสะสมผลงานฉบับนี้รวบรวมประวัติการศึกษา ประวัติส่วนตัว กิจกรรม และความมุ่งมั่น เพื่อประกอบการพิจารณาเข้าศึกษาต่อ</p>
-      <a href="portfolio.html" class="cta-portfolio-btn">
-        รับชม Portfolio
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="5" y1="12" x2="19" y2="12"></line>
-          <polyline points="12 5 19 12 12 19"></polyline>
-        </svg>
-      </a>
+      <img src="mhee.jpg" alt="รูปโปรไฟล์" class="home-photo reveal delay-1">
+      <h1 class="reveal delay-2">สวัสดีครับ<br>ผมชื่อนายธิติพัทธ์ ถิรพงศ์ศักดิ์ดา</h1>
+      <p class="sub reveal delay-3">แฟ้มสะสมผลงานฉบับนี้รวบรวมประวัติการศึกษา ประวัติส่วนตัว กิจกรรม และความมุ่งมั่น เพื่อประกอบการพิจารณาเข้าศึกษาต่อ</p>
+      <div class="reveal delay-4">
+        <a href="portfolio.html" class="cta-portfolio-btn">
+          รับชม Portfolio
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
     </div>
   </main>
 
   <script>
-    // ซ่อน Loader เมื่อโหลดหน้าเว็บเสร็จ
-    window.addEventListener('load', () => {
-      const loader = document.getElementById('page-loader');
-      setTimeout(() => {
-        loader.classList.add('fade-out');
-      }, 300);
+    // สคริปต์จำลอง/นับเปอร์เซ็นต์และเล่นแอนิเมชันคำขึ้นทีละส่วน
+    document.addEventListener('DOMContentLoaded', () => {
+      const percentEl = document.getElementById('loader-percent');
+      const loaderEl = document.getElementById('page-loader');
+      const reveals = document.querySelectorAll('.reveal');
+      
+      let count = 0;
+      
+      // ฟังก์ชั่นจำลองการโหลด 0% - 100%
+      const counterInterval = setInterval(() => {
+        count += Math.floor(Math.random() * 8) + 3; // สุ่มเพิ่มทีละ 3-10%
+        
+        if (count >= 100) {
+          count = 100;
+          percentEl.textContent = `${count}%`;
+          clearInterval(counterInterval);
+          
+          // เมื่อครบ 100% ให้ซ่อนหน้า Loader
+          setTimeout(() => {
+            loaderEl.classList.add('fade-out');
+            
+            // สั่งให้ตัวอักษรและองค์ประกอบเริ่มทยอยขึ้นมาทีละส่วน
+            setTimeout(() => {
+              reveals.forEach(el => el.classList.add('active'));
+            }, 300);
+
+          }, 400);
+        } else {
+          percentEl.textContent = `${count}%`;
+        }
+      }, 50); // ปรับความเร็วการนับได้ที่นี่ (มิลลิวินาที)
     });
   </script>
 
