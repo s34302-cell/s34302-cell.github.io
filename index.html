@@ -312,13 +312,36 @@
   .timeline p{color:var(--muted);max-width:60ch;}
 
   /* ---------- Interest ---------- */
-  #interest blockquote{
-    font-family:var(--serif);
-    font-size:1.25rem;
-    line-height:1.9;
-    color:var(--navy-900);
+  #interest .slide-scroll{max-width:760px;}
+
+  .interest-list{
+    display:flex;
+    flex-direction:column;
+    gap:32px;
+    text-align:left;
+  }
+
+  .interest-item{
     border-left:3px solid var(--blue-600);
     padding:4px 0 4px 28px;
+  }
+
+  .interest-item span{
+    display:block;
+    font-family:var(--serif);
+    font-size:0.8rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--blue-600);
+    font-weight:600;
+    margin-bottom:10px;
+  }
+
+  .interest-item p{
+    font-family:var(--serif);
+    font-size:1.15rem;
+    line-height:1.9;
+    color:var(--navy-900);
   }
 
   /* ---------- Activities ---------- */
@@ -537,10 +560,24 @@
       <section id="interest" class="slide alt">
         <div class="slide-scroll">
           <h2>ความสนใจในการศึกษาต่อ</h2>
-          <blockquote>
-            เขียนเกี่ยวกับคณะที่สนใจ สาขาที่อยากเรียน เหตุผลที่เลือก
-            และเป้าหมายในอนาคตของเราได้ตรงนี้
-          </blockquote>
+          <div class="interest-list">
+            <article class="interest-item">
+              <span>มหาวิทยาลัยที่อยากเข้า</span>
+              <p>เขียนเกี่ยวกับมหาวิทยาลัยที่สนใจและเหตุผลที่เลือกได้ตรงนี้</p>
+            </article>
+            <article class="interest-item">
+              <span>คณะที่อยากเข้า</span>
+              <p>เขียนเกี่ยวกับคณะที่สนใจและเหตุผลที่เลือกได้ตรงนี้</p>
+            </article>
+            <article class="interest-item">
+              <span>สาขาที่อยากเรียน</span>
+              <p>เขียนเกี่ยวกับสาขาที่อยากเรียนและเป้าหมายในอนาคตได้ตรงนี้</p>
+            </article>
+            <article class="interest-item">
+              <span>เหตุผลที่อยากเข้ามหาวิทยาลัยนี้ คณะนี้</span>
+              <p>เขียนเหตุผลที่เลือกมหาวิทยาลัยและคณะนี้ได้ตรงนี้</p>
+            </article>
+          </div>
         </div>
       </section>
 
