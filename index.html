@@ -127,64 +127,6 @@
     margin-top:2px;
   }
 
-  nav{display:flex;align-items:center;gap:20px;}
-
-  nav button.navlink{
-    font-family:var(--sans);
-    background:none;
-    border:none;
-    cursor:pointer;
-    font-size:0.88rem;
-    font-weight:500;
-    color:var(--navy-700);
-    position:relative;
-    padding:4px 0;
-    transition:color .2s ease;
-  }
-
-  nav button.navlink::after{
-    content:"";
-    position:absolute;
-    left:0;bottom:-2px;
-    width:0;height:2px;
-    background:var(--blue-600);
-    transition:width .25s ease;
-  }
-
-  nav button.navlink:hover{color:var(--blue-600);}
-  nav button.navlink:hover::after{width:100%;}
-  nav button.navlink.active{color:var(--blue-600);}
-  nav button.navlink.active::after{width:100%;}
-
-  /* ปุ่มกดรับชม Portfolio ใน Navbar */
-  .portfolio-btn-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 6px 16px;
-    background-color: var(--blue-600);
-    color: var(--white);
-    border: 1px solid var(--blue-600);
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.25s ease;
-  }
-
-  .portfolio-btn-link:hover {
-    background-color: var(--navy-900);
-    border-color: var(--navy-900);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 10px rgba(11, 37, 69, 0.2);
-  }
-
-  .portfolio-btn-link svg {
-    width: 15px;
-    height: 15px;
-    fill: currentColor;
-  }
-
   /* ปุ่มหลักกลางหน้าแรก (CTA Hero Button) */
   .cta-portfolio-btn {
     display: inline-flex;
@@ -212,18 +154,7 @@
   .cta-portfolio-btn svg {
     width: 18px;
     height: 18px;
-    fill: currentColor;
-  }
-
-  .menu-btn{
-    display:none;
-    background:none;
-    border:1px solid var(--line);
-    border-radius:6px;
-    font-size:1.1rem;
-    color:var(--navy-900);
-    padding:6px 12px;
-    cursor:pointer;
+    fill: stroke;
   }
 
   /* ---------- Slide mechanics (horizontal) ---------- */
@@ -534,30 +465,6 @@
 
   /* ---------- Responsive ---------- */
   @media (max-width: 860px){
-    nav{
-      position:fixed;
-      top:78px;left:0;right:0;
-      background:var(--white);
-      flex-direction:column;
-      gap:0;
-      border-bottom:1px solid var(--line);
-      transform:translateY(-120%);
-      transition:transform .25s ease;
-      padding:16px 0;
-    }
-    nav.open{transform:translateY(0);}
-    nav button.navlink{
-      padding:14px 32px;
-      border-bottom:1px solid var(--line);
-      width:100%;
-      text-align:left;
-    }
-    .portfolio-btn-link{
-      margin: 10px 32px 4px;
-      justify-content: center;
-      width: calc(100% - 64px);
-    }
-    .menu-btn{display:block;}
     #profile .main-image{width:3.5cm;height:4.5cm;}
     .info-grid{grid-template-columns:1fr;grid-template-rows:none;}
     .info-grid > div{border-right:none;border-bottom:1px solid var(--line);}
@@ -584,20 +491,6 @@
 
   <header class="navbar">
     <span class="brand" id="brandHome">นายธิติพัทธ์ ถิรพงศ์ศักดิ์ดา<span>PORTFOLIO</span></span>
-    <nav id="mainNav">
-      <button class="navlink" data-slide="0">หน้าหลัก</button>
-      <button class="navlink" data-slide="1">ประวัติส่วนตัว</button>
-      <button class="navlink" data-slide="2">ประวัติการศึกษา</button>
-      <button class="navlink" data-slide="3">ความสนใจในการศึกษาต่อ</button>
-      <button class="navlink" data-slide="4">กิจกรรมที่เข้าร่วม</button>
-      <a href="portfolio.html" class="portfolio-btn-link">
-        <svg viewBox="0 0 24 24">
-          <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
-        </svg>
-        รับชม Portfolio
-      </a>
-    </nav>
-    <button class="menu-btn" id="menuBtn" aria-label="เปิดเมนู">☰</button>
   </header>
 
   <div class="slides-viewport" id="slidesViewport">
@@ -718,17 +611,14 @@
       const loader = document.getElementById('page-loader');
       setTimeout(() => {
         loader.classList.add('fade-out');
-      }, 300); // หน่วงเวลาเล็กน้อยให้แสดงผลอย่างนุ่มนวล
+      }, 300);
     });
 
     const viewport = document.getElementById('slidesViewport');
     const track = document.getElementById('slidesTrack');
     const slides = Array.from(track.querySelectorAll('.slide'));
     const total = slides.length;
-    const navLinks = Array.from(document.querySelectorAll('.navlink'));
     const dotsWrap = document.getElementById('dots');
-    const menuBtn = document.getElementById('menuBtn');
-    const nav = document.getElementById('mainNav');
     const brandHome = document.getElementById('brandHome');
 
     let current = 0;
@@ -745,7 +635,6 @@
 
     function update() {
       track.style.transform = `translateX(-${current * 100}vw)`;
-      navLinks.forEach((l, i) => l.classList.toggle('active', i === current));
       dots.forEach((d, i) => d.classList.toggle('active', i === current));
     }
 
@@ -771,16 +660,7 @@
       else next();
     });
 
-    navLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.stopPropagation();
-        goTo(parseInt(link.dataset.slide, 10));
-        nav.classList.remove('open');
-      });
-    });
-
     brandHome.addEventListener('click', (e) => { e.stopPropagation(); goTo(0); });
-    menuBtn.addEventListener('click', (e) => { e.stopPropagation(); nav.classList.toggle('open'); });
 
     // Keyboard navigation
     window.addEventListener('keydown', (e) => {
