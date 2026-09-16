@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ความสนใจในการศึกษาต่อ | นายธิติพัทธ์ ถิรพงศ์ศักดิ์ดา</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --navy-900:#0B2545;
+    --navy-700:#14406B;
+    --blue-600:#1D5DAD;
+    --blue-100:#E9F1FB;
+    --blue-050:#F5F9FE;
+    --white:#FFFFFF;
+    --ink:#142433;
+    --muted:#5B7186;
+    --line:#D3E1F2;
+    --serif:'Noto Serif Thai', serif;
+    --sans:'Noto Sans Thai', sans-serif;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  body{
+    font-family:var(--sans);
+    color:var(--ink);
+    background:var(--white);
+    line-height:1.75;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+  }
+
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+
+  /* ---------- Letterhead / Navbar ---------- */
+  .letterhead{
+    background:var(--navy-900);
+    color:var(--white);
+    text-align:center;
+    padding:8px 20px;
+    font-size:0.68rem;
+    letter-spacing:0.18em;
+    font-weight:500;
+    position:fixed;
+    top:0;left:0;right:0;
+    z-index:60;
+  }
+
+  .navbar{
+    position:fixed;
+    top:34px;
+    left:0;right:0;
+    z-index:55;
+    background:var(--white);
+    border-bottom:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:14px 32px;
+  }
+
+  .brand{
+    font-family:var(--serif);
+    font-weight:700;
+    font-size:1.05rem;
+    color:var(--navy-900);
+    letter-spacing:0.03em;
+    cursor:pointer;
+  }
+
+  .brand span{
+    display:block;
+    font-family:var(--sans);
+    font-weight:400;
+    font-size:0.62rem;
+    color:var(--muted);
+    letter-spacing:0.15em;
+    margin-top:2px;
+  }
+
+  nav{display:flex;align-items:center;gap:20px;}
+
+  nav a.navlink{
+    font-family:var(--sans);
+    background:none;
+    border:none;
+    cursor:pointer;
+    font-size:0.88rem;
+    font-weight:500;
+    color:var(--navy-700);
+    position:relative;
+    padding:4px 0;
+    transition:color .2s ease;
+    text-decoration:none;
+  }
+
+  nav a.navlink::after{
+    content:"";
+    position:absolute;
+    left:0;bottom:-2px;
+    width:0;height:2px;
+    background:var(--blue-600);
+    transition:width .25s ease;
+  }
+
+  nav a.navlink:hover{color:var(--blue-600);}
+  nav a.navlink:hover::after{width:100%;}
+  nav a.navlink.active{color:var(--blue-600);}
+  nav a.navlink.active::after{width:100%;}
+
+  /* ปุ่มกดกลับหน้าแรก (Index) */
+  .home-btn-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 16px;
+    background-color: var(--blue-050);
+    color: var(--navy-900);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s ease;
+  }
+
+  .home-btn-link:hover {
+    background-color: var(--navy-900);
+    color: var(--white);
+    border-color: var(--navy-900);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(11, 37, 69, 0.15);
+  }
+
+  .home-btn-link svg {
+    width: 15px;
+    height: 15px;
+    fill: currentColor;
+  }
+
+  .menu-btn{
+    display:none;
+    background:none;
+    border:1px solid var(--line);
+    border-radius:6px;
+    font-size:1.1rem;
+    color:var(--navy-900);
+    padding:6px 12px;
+    cursor:pointer;
+  }
+
+  /* ---------- Page Main Layout ---------- */
+  .main-wrapper{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:130px 24px 60px;
+    width:100%;
+  }
+
+  .main-wrapper.alt{background:var(--blue-050);}
+
+  .container{
+    max-width:920px;
+    width:100%;
+    margin:0 auto;
+  }
+
+  h2{
+    font-family:var(--serif);
+    font-weight:700;
+    font-size:1.9rem;
+    color:var(--navy-900);
+    margin-bottom:28px;
+    text-align:center;
+  }
+
+  /* Responsive Navbar */
+  @media (max-width: 860px){
+    nav{
+      position:fixed;
+      top:78px;left:0;right:0;
+      background:var(--white);
+      flex-direction:column;
+      gap:0;
+      border-bottom:1px solid var(--line);
+      transform:translateY(-120%);
+      transition:transform .25s ease;
+      padding:16px 0;
+    }
+    nav.open{transform:translateY(0);}
+    nav a.navlink{
+      padding:14px 32px;
+      border-bottom:1px solid var(--line);
+      width:100%;
+      text-align:left;
+      display:block;
+    }
+    .home-btn-link{
+      margin: 10px 32px 4px;
+      justify-content: center;
+      width: calc(100% - 64px);
+    }
+    .menu-btn{display:block;}
+    .main-wrapper{padding-top:140px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important;}
+  }
+
+  .interest-list{
+    display:flex;
+    flex-direction:column;
+    gap:32px;
+    text-align:left;
+    max-width:760px;
+    margin:0 auto;
+  }
+
+  .interest-item{
+    border-left:3px solid var(--blue-600);
+    padding:4px 0 4px 28px;
+  }
+
+  .interest-item span{
+    display:block;
+    font-family:var(--serif);
+    font-size:0.8rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--blue-600);
+    font-weight:600;
+    margin-bottom:10px;
+  }
+
+  .interest-item p{
+    font-family:var(--serif);
+    font-size:1.15rem;
+    line-height:1.9;
+    color:var(--navy-900);
+  }
+</style>
+</head>
+<body>
+
+  <div class="letterhead">แฟ้มสะสมผลงานเพื่อการสมัครเข้าศึกษาต่อระดับอุดมศึกษา · ADMISSIONS PORTFOLIO</div>
+
+  <header class="navbar">
+    <a href="portfolio.html" style="text-decoration:none;"><span class="brand" id="brandHome">นายธิติพัทธ์ ถิรพงศ์ศักดิ์ดา<span>PORTFOLIO</span></span></a>
+    <nav id="mainNav">
+      <a href="index.html" class="home-btn-link">
+        <svg viewBox="0 0 24 24">
+          <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+        </svg>
+        กลับหน้าแรก
+      </a>
+      <a href="portfolio.html" class="navlink">คำนำ</a>
+      <a href="profile.html" class="navlink">ประวัติส่วนตัว</a>
+      <a href="education.html" class="navlink">ประวัติการศึกษา</a>
+      <a href="interest.html" class="navlink active">ความสนใจในการศึกษาต่อ</a>
+      <a href="activities.html" class="navlink">กิจกรรมที่เข้าร่วม</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="เปิดเมนู">☰</button>
+  </header>
+
+  <main class="main-wrapper alt">
+    <div class="container">
+      <h2>ความสนใจในการศึกษาต่อ</h2>
+      <div class="interest-list">
+        <article class="interest-item">
+          <span>มหาวิทยาลัยที่อยากเข้า</span>
+          <p>มหาวิทยาลัยที่อยากเข้าคือ Mahidol university(MU)</p>
+        </article>
+        <article class="interest-item">
+          <span>คณะที่อยากเข้า</span>
+          <p>คณะที่อยากเข้าคือ เทคนิคการแพทย์</p>
+        </article>
+        <article class="interest-item">
+          <span>สาขาที่อยากเรียน</span>
+          <p>สาขา สาขากายภาพบำบัด</p>
+        </article>
+        <article class="interest-item">
+          <span>เหตุผลที่อยากเข้ามหาวิทยาลัยนี้ คณะนี้</span>
+          <p>เพราะเป็นมหาวิทยาลัยในฝันและรู้สึกว่าที่นี่จะเป็นที่ที่ทำให้ผมเติบโตและได้เรียนรู้ตรงกับสายงานที่ต้องการ ที่เลือกคณะนี้เพราะผมถนัดในด้านวิทยาศาสตร์-คณิตศาสตร์ ที่เป็นสาขานี้เพราะว่าที่บ้านมีผู้สูงอายุเยอะเลยอยากนำสิ่งที่เรียนไปปรับใช้ได้และดูแลคนที่รักได้</p>
+        </article>
+      </div>
+    </div>
+  </main>
+
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const nav = document.getElementById('mainNav');
+
+    menuBtn.addEventListener('click', () => { nav.classList.toggle('open'); });
+  </script>
+
+</body>
+</html>
